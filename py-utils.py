@@ -29,3 +29,12 @@ def file_replace_string(filename, old_string, new_string):
 	
 file_replace_string("test.txt","hello","world")	  #hello will be replaced with world where ever hello is present in the test.txt file
 	
+# 3. Find file in a path
+
+def findFiles(path,search):
+  for r,d,f in os.walk(path):
+    for files in f:
+      if search in files :
+	print (os.path.join(r,files))
+	
+findFiles("D:\pyscripts","test.py") #prints the path within the directory D:\pyscripts if test.py exists
