@@ -38,3 +38,22 @@ def findFiles(path,search):
 	print (os.path.join(r,files))
 	
 findFiles("D:\pyscripts","test.py") #prints the path within the directory D:\pyscripts if test.py exists
+
+
+#4. Remove HTML tags from string
+def removeHTMLtags(html_text):
+    import re
+    return re.sub(u'<[^<]+?>', u'\n', html_text) 
+
+print (removeHTMLtags("<div>SirJayesh</div>")) #prints SirJayesh
+
+#5 Check if url is Valid or Invalid
+def is_valid_url(url):
+    from urlparse import urlparse
+	if not bool(urlparse(url).netloc):
+        return False
+    else:
+        return True
+
+print(is_valid_url("abc")) #returns False
+print(is_valid_url("https://www.google.com")) #returns True
