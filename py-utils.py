@@ -57,3 +57,24 @@ def is_valid_url(url):
 
 print(is_valid_url("abc")) #returns False
 print(is_valid_url("https://www.google.com")) #returns True
+
+#6 Resize Excel Columns:
+def resizeExcelColumns(fileName):
+	import openpyxl
+	from string import ascii_uppercase
+	wb = openpyxl.load_workbook(filename = fileName)        
+	worksheet = wb.active
+	for col in worksheet.columns:
+		 max_length = 0
+		 column = col[0].column 
+		 for cell in col:
+			 try: 
+				 if len(str(cell.value)) > max_length:
+					 max_length = len(cell.value)
+			 except:
+				 pass
+		 adjusted_width = (max_length + 2) * 1.2
+		 worksheet.column_dimensions[column].width = adjusted_width
+	wb.save(fileName)
+	
+#resizeExcelColumns("abc.xlsx")
