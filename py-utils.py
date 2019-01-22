@@ -78,3 +78,12 @@ def resizeExcelColumns(fileName):
 	wb.save(fileName)
 	
 #resizeExcelColumns("abc.xlsx")
+
+#7. Copy Large file
+import shutil
+def copyLargeFile(src, dest, buffer_size=16000):
+    with open(src, 'rb') as fsrc:
+        with open(dest, 'wb') as fdest:
+            shutil.copyfileobj(fsrc, fdest, buffer_size)
+#copyLargeFile("C:\file.mp4","D:\file.mp4",16000)
+		
